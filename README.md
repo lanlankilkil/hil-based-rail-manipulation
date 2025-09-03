@@ -1,2 +1,2 @@
 # hil-based-rail-manipulation
-hil部署
+具体参考hil-serl/examples/experiments/pick_ironroad下的readme
