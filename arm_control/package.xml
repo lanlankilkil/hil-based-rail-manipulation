@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>arm_control</name>
+  <version>0.0.0</version>
+  <description>Robot arm control package</description>
+  <maintainer email="lz@example.com">lz</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- 编译依赖 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>  <!-- 保留python支持 -->
+  <depend>ament_python</depend>
+
+  <build_depend>rclpy</build_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <build_depend>omni_msgs</build_depend>
+  
+  <!-- 运行依赖 -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <exec_depend>rosidl_typesupport_c</exec_depend>
+  <exec_depend>rosidl_typesupport_cpp</exec_depend>
+
+  <exec_depend>python3-pymodbus</exec_depend>  <!-- 系统级包 -->
+  <exec_depend>pymodbus>=3.0.0</exec_depend>
+  
+  <!-- 消息类型依赖 -->
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+
+  <!-- 声明为消息接口包 -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <!-- <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend> -->
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

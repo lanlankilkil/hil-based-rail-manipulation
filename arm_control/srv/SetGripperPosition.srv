@@ -1,0 +1,4 @@
+float64 position  # 0.0-1.0, 0=关闭, 1=打开
+---
+bool success
+string message

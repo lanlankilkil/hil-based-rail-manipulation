@@ -1,0 +1,6 @@
+# 请求
+string command #clear_warning;read_motor_fault;move_origin
+---
+# 响应
+int32 is_command_success #0:操作失败;1:操作成功
+string message

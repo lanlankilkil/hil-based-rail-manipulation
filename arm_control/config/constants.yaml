@@ -1,0 +1,87 @@
+# SDK 发送的命令字
+
+FRAME_HEADER: "4e66"               # 数据帧头
+
+# 6001端口:
+FAULT_RESET: "3201"                # 清除伺服错误
+
+REBOOT_CONTROLLER: "5061"          # 重启控制器
+
+CONTROLLER_INIT_FINISH: "4305"     # 控制器初始化是否完成
+
+CONTROLLER_IP:
+  SET: "4301"                      # 控制器ip设置
+  INQUIRE: "4302"                  # 控制器ip查询
+
+CONTROL_CYCLE:
+  SET:  "2E07"                     # 设置控制器通讯周期
+  INQUIRE: "2E08"                  # 查询控制器通讯周期
+
+DEADMAN_STATUS:
+  SET: "2301"                      # 设置伺服上下电状态
+  INQUIRE: "2302"                  # 查询伺服上下电状态
+
+SERVO_COMMANDS:
+  SET: "2001"                      # 设置伺服状态
+  INQUIRE: "2002"                  # 查询伺服状态
+
+SERVO_CONNECT_INQUIRE: "5042"      # 伺服连接状态查询
+
+SERVO_INSIDE_PARM:
+  INQUIRE: "5072"                  # 查询伺服参数
+  SET: "5071"                      # 设置伺服参数
+
+SLAVETYPE_LIST_INQUIRE: "2e0e"     # 查询从站列表
+
+OPERATION_MODE:
+  SET: "2101"                      # 设置操作模式状态
+  INQUIRE: "2102"                  # 查询操作模式状态
+
+JOINTPARAMETER:
+  SET: "3B01"                      # 关节参数设置
+  INQUIRE: "3B02"                  # 关节参数查询
+
+DIRECTMOTION:
+  MODE_SET: "50B1"                 # 开启/关闭socket直接控制运动模式
+  INSERT_INSTRVEC: "50B4"          # 发送指令队列控制机械臂移动, 采用自动点位
+  MODE_SUSPEND: "50B7"             # 暂停追加队列运行
+  MODE_START: "50B8"               # 开始追加队列运行（暂停后，发送使用）
+  MODE_STOP: "50B9"                # 停止追加队列运行
+  KEEP_POWER_ON: "50ba"            # 设置队列模式停止不下电
+
+JOB_CONTROL:
+  JOBSEND_DONE: "2501"             # 开始运行作业文件
+  STOP_JOB_RUN: "2503"             # 停止正在运行的作业文件
+
+JOBFILE_LIST_INQUIRE: "5532"       # 获取作业文件列表
+
+SPEED_CONTROL:
+  SET: "2601"                      # 设置全局速度
+  INQUIRE: "2602"                  # 查询全局速度
+
+CURRENTPOS_INQUIRE: "2a02"         # 获取当前位置
+
+ROBOT_MOVEMENT:
+  JOINT: "4501"                    # 机器人关节运动MOVJ
+  LINEAR: "4502"                   # 机器人直线运动MOVL
+  CIRULAR: "4503"                  # 机器人圆弧运动MOVC
+  SPLINE: "4504"                   # 机器人样条曲线运动MOVS
+
+JOG_OPERATION:
+  MOVE: "2901"                     # 执行点动操作
+  STOP: "2902"                     # 停止执行点动操作
+
+JOG_JOINTPARAMETER:
+  SET: "2604"                      # 设置关节轴点动速度
+  INQUIRE: "2605"                  # 查询关节轴点动速度
+
+JOG_SENSITIVITY:
+  SET: "260A"                      # 设置点动灵敏度
+  INQUIRE: "260B"                  # 查询点动灵敏度
+
+# 7000端口:
+MULTI_POINT: "9521"                # 运动控制
+
+SERVOCONTROL:
+  OPEN: "95a1"                     # 开关伺服点位运动控制
+  MOVE: "95a4"                     # 伺服点位运动控制
