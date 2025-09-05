@@ -1,7 +1,7 @@
 # hil-based-rail-manipulation
 1.readme具体参考examples/experiments/pick_ironroad下的readme。
 
-2.examples3修复了ros和3.8的依赖问题。可以在foxy正常运行。
+2.examples3修复了ros和3.8的代码不兼容问题。目前可以在foxy正常运行。
 
 注意事项：使用本项目conda环境编译arm_contral，添加以下两个命令到~/.bashrc
 
