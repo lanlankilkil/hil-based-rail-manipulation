@@ -7,5 +7,5 @@
 
 export PYTHONPATH="/home/your_name/.../hil-serl/serl_launcher:/home/wang/Project/hil-serl1/examples*:$PYTHONPATH"
 
-source /home/your_name/P.../hil-serl/arm_control/teleop/install/setup.bash
+source /home/your_name/.../hil-serl/arm_control/teleop/install/setup.bash
 下一步使用真实的模型检查单测试
