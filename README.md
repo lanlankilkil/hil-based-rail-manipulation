@@ -5,7 +5,7 @@
 
 注意事项：使用本项目conda环境编译arm_contral，添加以下两个命令到~/.bashrc
 
-export PYTHONPATH="/home/your_name/Project/hil-serl1/serl_launcher:/home/wang/Project/hil-serl1/examples*:$PYTHONPATH"
+export PYTHONPATH="/home/your_name/.../hil-serl/serl_launcher:/home/wang/Project/hil-serl1/examples*:$PYTHONPATH"
 
-source /your_name/wang/Project/hil-serl1/arm_control/teleop/install/setup.bash
+source /home/your_name/P.../hil-serl/arm_control/teleop/install/setup.bash
 下一步使用真实的模型检查单测试
