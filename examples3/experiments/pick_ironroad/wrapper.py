@@ -145,7 +145,8 @@ class IronroadEnv(gym.Env):
         ])
         
         # 当前状态
-        self.currpos = np.zeros(7)  # [x,y,z,qx,qy,qz,qw]
+        # 初始化为有效的位姿：[x,y,z,qx,qy,qz,qw]，四元数为单位四元数[0,0,0,1]
+        self.currpos = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0])  # [x,y,z,qx,qy,qz,qw]
         self.currvel = np.zeros(6)
         self.currforce = np.zeros(3)
         self.currtorque = np.zeros(3)
