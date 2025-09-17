@@ -8,6 +8,10 @@ from franka_env.envs.wrappers import (
     DualSpacemouseIntervention,
     MultiCameraBinaryRewardClassifierWrapper,
 )
+from franka_env.envs.ros2_teleop_intervention import (
+    ROS2TeleopIntervention,
+    DualROS2TeleopIntervention,
+)
 from franka_env.envs.relative_env import DualRelativeFrame
 from franka_env.envs.franka_env import DefaultEnvConfig
 from franka_env.envs.dual_franka_env import DualFrankaEnv
@@ -169,7 +173,16 @@ class TrainConfig(DefaultTrainingConfig):
     encoder_type = "resnet-pretrained"
     setup_mode = "dual-arm-learned-gripper"
 
-    def get_environment(self, fake_env=False, save_video=False, classifier=False):
+    def get_environment(self, fake_env=False, save_video=False, classifier=False, intervention_mode="spacemouse"):
+        """
+        Create environment with specified intervention mode
+        
+        Args:
+            fake_env: Whether to use fake environment
+            save_video: Whether to save video
+            classifier: Whether to use classifier
+            intervention_mode: Type of intervention ("spacemouse", "ros2", "both", "none")
+        """
         left_env = HandOffEnv(
             fake_env=fake_env,
             save_video=save_video,
@@ -183,8 +196,18 @@ class TrainConfig(DefaultTrainingConfig):
         )
 
         env = DualFrankaEnv(left_env, right_env)
-        if not fake_env:
-            env = DualSpacemouseIntervention(env, gripper_enabled=True)
+        
+        # Apply intervention wrapper based on mode
+        if not fake_env and intervention_mode != "none":
+            if intervention_mode == "spacemouse":
+                env = DualSpacemouseIntervention(env, gripper_enabled=True)
+            elif intervention_mode == "ros2":
+                env = DualROS2TeleopIntervention(env, gripper_enabled=True)
+            elif intervention_mode == "both":
+                # Apply both interventions - ROS2 first, then SpaceMouse
+                env = DualROS2TeleopIntervention(env, gripper_enabled=True)
+                env = DualSpacemouseIntervention(env, gripper_enabled=True)
+            
         env = DualRelativeFrame(env)
 
         env = DualQuat2EulerWrapper(env)

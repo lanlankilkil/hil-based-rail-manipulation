@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: serl_launcher
+Version: 0.1.2
+Summary: library for rl experiments
+Home-page: https://github.com/rail-berkeley/serl
+Author: auth
+License: MIT
+Requires-Dist: zmq
+Requires-Dist: typing
+Requires-Dist: typing_extensions
+Requires-Dist: opencv-python
+Requires-Dist: lz4
+Requires-Dist: agentlace@ git+https://github.com/youliangtan/agentlace.git@cf2c337c5e3694cdbfc14831b239bd657bc4894d
+Dynamic: author
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
